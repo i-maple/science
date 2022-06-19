@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:science/models/topics_model.dart';
 import 'package:science/providers/subject_provider.dart';
 import 'package:science/screens/components/chapter_card.dart';
+import 'package:science/screens/read_screen.dart';
 import 'package:science/utils/constants.dart';
 
 class TopicsPage extends StatefulWidget {
@@ -25,7 +26,16 @@ class _TopicsPageState extends State<TopicsPage> {
       widgetsList.add(ChapterCard(
         chapterText: chapters,
         serialNo: index.toString(),
-        onTap: () {},
+        onTap: () {
+          Provider.of<SubjectProvider>(context, listen: false)
+              .setHeading(chapters);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => ReadScreen(),
+            ),
+          );
+        },
       ));
       index++;
     }

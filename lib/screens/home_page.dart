@@ -95,6 +95,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     initializeProvider.getCurrentSubject.toUpperCase(),
                     style: kTitleTextStyle,
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
                     height: 15,
